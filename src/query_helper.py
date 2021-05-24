@@ -3,7 +3,6 @@ Query object that acts as an intermediate between a user input
 query and news api query format.
 '''
 
-import config as cfg
 
 class NewsQueryHelper(object):
     def __init__(self, query_name=None, query=None, sources=None, 
