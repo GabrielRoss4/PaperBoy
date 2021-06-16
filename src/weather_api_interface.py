@@ -11,10 +11,11 @@ class WeatherApiInterface(object):
         self.api_key = api_key
 
     def get_weather(self, query):
+        print(query.city)
         try:
             raw_response = requests.get(f"http://api.openweathermap.org/data/2.5/weather?&appid={self.api_key}&zip={query.zipcode},{query.country}&units={query.units}")
-            print("Connected to weather API")
             response = raw_response.json()
+            print("Connected to weather API")
             return self.format_weather(response)
         except:
             print("Failed to connect to weather API")

@@ -1,11 +1,12 @@
 import config as cfg
 from news_api_interface import NewsApiInterface
 from weather_api_interface import WeatherApiInterface
+from datetime import datetime
 
 
 def make_local_query(cfg, NewsApiInterface, WeatherApiInterface):
     local_json_obj = dict()
-    for query in cfg.LOCAL_QUERIES:
+    for query in cfg.LOCAL_QUERIES: 
         weather = WeatherApiInterface().get_weather(query)
         news = NewsApiInterface().get_top_headlines(query)
 
@@ -52,7 +53,7 @@ def main(cfg, NewsApiInterface, WeatherApiInterface):
         data = dict()
         data["local"] = local
         data["national"] = national
-        with open("all_news.txt", "w") as outfile:
+        with open(f"all_news.txt {datetime.now()}", "w") as outfile:
             json.dump(data, outfile)
 
 if __name__ == "__main__":

@@ -4,6 +4,14 @@ from query_helper import NewsQueryHelper, LocalQueryHelper
 NEWS_API_KEY = os.environ.get("NEWS_API_KEY")
 WEATHER_API_KEY = os.environ.get("WEATHER_API_KEY")
 
+if NEWS_API_KEY is None:
+    print("Please provide news API key")
+    exit()
+
+if WEATHER_API_KEY is None:
+    print("Please provide weather API key")
+    exit()
+
 UNITS = "imperial"
 LANGUAGE = "en"
 
@@ -13,7 +21,7 @@ LOCAL_QUERIES = [
     LocalQueryHelper(
         city="Boston",
         state="MA",
-        zipcode="02101",
+        zipcode="02460",
         country="us",
         units=UNITS),
     LocalQueryHelper(
