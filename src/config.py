@@ -7,6 +7,8 @@ WEATHER_API_KEY = os.environ.get("WEATHER_API_KEY")
 UNITS = "imperial"
 LANGUAGE = "en"
 
+EXPORT_TO_JSON = True
+
 LOCAL_QUERIES = [
     LocalQueryHelper(
         city="Boston",
